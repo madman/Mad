@@ -2,7 +2,6 @@
 /**
  * Mad library for Zend Framework
  * 
- * 
  * LICENSE
  *
  * This source file is subject to the new BSD license that is bundled
@@ -13,8 +12,6 @@
  * obtain it through the world-wide-web, please send an email
  * to license@devcomm.org.ua so we can send you a copy immediately.
  *
- * @category   Mad
- * @package    Mad
  * @copyright  Copyright (c) 2011 Devcomm (http://www.devcomm.org.ua)
  * @license    http://devcomm.org.ua/license/new-bsd     New BSD License
  * @version    $Id: $
@@ -25,8 +22,7 @@
  * 
  * @category   Mad
  * @package    Mad
- * @copyright  Copyright (c) 2011 Devcomm (http://www.devcomm.org.ua)
- * @license    http://devcomm.org.ua/license/new-bsd     New BSD License
+ * @author     madman <madman@devcomm.org.ua>
  */
 class Mad_Exception extends Zend_Exception {
     
