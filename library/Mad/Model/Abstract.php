@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Mad library for Zend Framework
  * 
@@ -25,12 +26,27 @@
  * @author     madman <madman@devcomm.org.ua>
  */
 class Mad_Model_Abstract {
-    
+
     /**
      * return Mad_Model_Mapper_Abstract
      */
     abstract function getMapper();
-    
+
+    /**
+     * Populate this data model with given data elements
+     * 
+     * @param   array
+     * @return  Mad_Model_Abstract
+     */
+    abstract public function populate($row);
+
+    /**
+     * Converts this model into an array for storage or rendering purposes
+     * 
+     * @return  array
+     */
+    abstract public function toArray();
+
     /**
      * Magic method.
      * 
@@ -40,8 +56,8 @@ class Mad_Model_Abstract {
      */
     public function __call($name, $args = array()) {
         $params = array_merge(array($this), $args);
-        
+
         return call_user_func_array(array($this->getMapper(), $name), $params);
     }
-    
+
 }
