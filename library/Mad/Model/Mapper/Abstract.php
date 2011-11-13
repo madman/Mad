@@ -25,7 +25,44 @@
  * @author     madman <madman@devcomm.org.ua>
  */
 class Mad_Model_Mapper_Abstract {
-    //put your code here
+    
+    /**
+     * Model classname
+     *
+     * @var string
+     */
+    protected $_modelClassname = '';
+    
+    
+    
+    /**
+     * Save model 
+     */
+    abstract public function save(Mad_Model_Abstract $model);
+    
+    /**
+     * Find model by given it's primary key
+     * 
+     * @param   mixed $key
+     */
+    abstract public function find($key);
+
+    /**
+     * Fetch models by criteria
+     * 
+     * @param
+     */
+    abstract public function fetchAll($filter = null, $order = null, $count = null, $offset = null);
+    
+    /**
+     * Get related model classname
+     *
+     * @return string
+     */
+    public function getModelClassname() {
+        return $this->_modelClassname;
+    }
+    
     
     
 }
