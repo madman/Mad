@@ -23,9 +23,9 @@ class Mad_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract {
         $action = strtolower($request->getActionName());
 
         if (
-                'default' == $this->_module
-                && 'auth' == $this->_controller
-                && 'login' == $this->_action
+                $this->_module == $module
+                && $this->_controller == $controller
+                && $this->_action == $action
         ) {
             return;
         }
