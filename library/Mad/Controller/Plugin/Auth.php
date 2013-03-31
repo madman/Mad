@@ -34,14 +34,14 @@ class Mad_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract {
         if ($auth->hasIdentity()) {
             return;
         }
-
-        $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
-        $redirector->gotoSimple($this->_action, $this->_controller, $this->_module);
-
-        if ($request->isGet()) {
+        
+       if ($request->isGet()) {
             $storage = new Zend_Session_Namespace('Auth');
             $storage->referer = $request->getPathInfo();
         }
+ 
+        $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
+        $redirector->gotoSimple($this->_action, $this->_controller, $this->_module);
     }
 
 }
