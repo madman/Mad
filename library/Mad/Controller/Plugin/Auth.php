@@ -25,7 +25,6 @@ class Mad_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstract {
         if (
                 $this->_module == $module
                 && $this->_controller == $controller
-                && $this->_action == $action
         ) {
             return;
         }
