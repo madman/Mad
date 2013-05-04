@@ -44,22 +44,25 @@ class Mad_Auth_Adapter_Array implements Zend_Auth_Adapter_Interface {
      */
     public function authenticate() {
 
-        $code = Zend_Auth_Reselt::SUCCESS;
+        $code = Zend_Auth_Result::SUCCESS;
         $identy = null;
         $messages = array();
 
         try {
-            if (!array_key_exists($thid->_username, $this->_users)) {
-                $code = Zend_Auth_Reselt::FAILURE_IDENTITY_NOT_FOUND;
+            if (!array_key_exists($this->_username, $this->_users)) {
+                $code = Zend_Auth_Result::FAILURE_IDENTITY_NOT_FOUND;
                 $messages[] = 'Користувача не знайдено';
                 throw new Mad_Exception();
             }
 
             if ($this->_password != $this->_users[$this->_username]) {
-                $code = Zend_Auth_Reselt::FAILURE_CREDENTIAL_INVALID;
+                $code = Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID;
                 $messages[] = 'Не вірний пароль';
                 throw new Mad_Exception();
             }
+            
+            $identy = $this->_username;
+            
         } catch (Mad_Exception $e) {
             
         }
